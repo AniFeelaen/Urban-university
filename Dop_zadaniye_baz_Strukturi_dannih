@@ -11,10 +11,9 @@ average5 = sum(grades[4])/len(grades[4])
 
 
 new_grades = (average1, average2, average3, average4, average5) #добавляем оценки в новый список
-new_dict.update(sorted_students[0]: new_grades[0], sorted_students[1]: new_grades[1], sorted_students[2]: new_grades[2], sorted_students[3]: new_grades[3], 
-               sorted_students[4]: new_grades[4]) #добавляем студентов и оценки в словарь по парам
+new_dict.update({sorted_students[0]: new_grades[0], sorted_students[1]: new_grades[1], sorted_students[2]: new_grades[2], sorted_students[3]: new_grades[3], 
+               sorted_students[4]: new_grades[4]}) #добавляем студентов и оценки в словарь по парам
 
-# new_dict.update({sorted_students[i]: new_grades[i] for i in range(len(sorted_students))}) можем использовать цикл фор и длину студентов для цикла,  так как длина студентов и оценок будет равна 
- 
+
 print (new_dict)
 
