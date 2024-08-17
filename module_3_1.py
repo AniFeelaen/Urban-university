@@ -11,7 +11,8 @@ def string_info(string):
     up = string.upper()
     low = string.lower()
     return (length, up, low)
-# считаем счетчик вызовов функций и смотрим есть ли первое значение в списке
+# считаем счетчик вызовов функций, приводим к нижнему регистру
+# и смотрим есть ли первое значение в во второй переменной(списке)
 def is_contains (string, list_to_search):
     count_calls() 
     string = string.lower()
