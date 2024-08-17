@@ -18,10 +18,6 @@ def is_contains (string, list_to_search):
             return True
     else:
         return False
-    
-
-    
-
 
 print(string_info('Capybara'))
 print(string_info('Armageddon'))
