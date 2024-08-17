@@ -1,16 +1,17 @@
 calls = 0
+#добавляем счетчик и возвращаем его значение при обращении
 def count_calls():
     global calls
     calls = calls + 1
     return calls
-
+#вызываем строку, прибавляем счетчик, считаем длину, и регистры верхний и нижний
 def string_info(string):
+    count_calls()
     length = len(string)
     up = string.upper()
     low = string.lower()
-    count_calls()
     return (length, up, low)
-
+# считаем счетчик вызовов функций и смотрим есть ли первое значение в списке
 def is_contains (string, list_to_search):
     count_calls()
     for item in list_to_search:
