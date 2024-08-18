@@ -8,10 +8,12 @@ def append_to_list(item, list_my = [None]):
 
 def print_params(a = 1, b = 'строка', c = True):
     print (print_params)
-print_params(a = 5, b = 10, c = False)
-print_params(b = 25)
-print_params(c = [1,2,3])
+#print_params(a = 5, b = 10, c = False) #
+#print_params(b = 25)
+#print_params(c = [1,2,3])
 
 values_list = ['true', True, 5]
+values_dict = {"a": 5, "b": 5, "c": False}
 
-values_dict = {a: 5, b: 5, c: False}
+print_params(*values_list)
+print_params(*values_dict)
