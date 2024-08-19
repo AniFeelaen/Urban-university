@@ -11,7 +11,7 @@ values_dict = {"a": 5, "b": False , "c": "строка2"}
 # используем функцию чтобы распаковать список и словарь
 print_params(*values_list)
 print_params(**values_dict)
-
+# распаковываем список и добавляем к этому еще один параметр 42
 values_list_2 = [54.32, 'Строка' ]
 print_params(*values_list_2, 42)
 
