@@ -6,6 +6,7 @@ def get_matrix (n, m, value):
         line = []
         for j in range (m) :
             line.append (value)
+        #добавляем в матрицу строку n раз
         matrix.append (line)
     return matrix
 
