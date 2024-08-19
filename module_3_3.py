@@ -1,14 +1,14 @@
 
 def print_params(a = 1, b = 'строка', c = True):
     print (a, b, c)
-
+# примеры вывода
 print_params(a = 5, b = 10, c = False) #
 print_params(b = 25)
 print_params(c = [1,2,3])
-
+# создание списка и словаря
 values_list = ['true', True, 5]
-values_dict = {"a": 5, "b": "строка2", "c": False}
-
+values_dict = {"a": 5, "b": False , "c": "строка2"}
+# используем функцию чтобы распаковать список и словарь
 print_params(*values_list)
 print_params(**values_dict)
 
