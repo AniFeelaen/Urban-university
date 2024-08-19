@@ -5,6 +5,7 @@ def get_matrix (n, m, value):
     for i in range (n) :
         line = []
         for j in range (m) :
+            #добавляем в строку значения m раз
             line.append (value)
         #добавляем в матрицу строку n раз
         matrix.append (line)
