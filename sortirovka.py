@@ -5,7 +5,6 @@ def bubble_sort(ls):
                 ls[j], ls[j + 1] = ls [j + 1], ls[j]
     return ls
 
-
 def selection_sort(ls):
     for i in range (len(ls) - 1):
         min_index = i
