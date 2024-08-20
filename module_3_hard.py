@@ -4,5 +4,5 @@ def f(*args):
             return f + len(element)
         if isinstance(element, dict):
             return
-            
+            gg
 f(data_structure)            
