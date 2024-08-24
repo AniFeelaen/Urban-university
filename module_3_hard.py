@@ -6,7 +6,7 @@ data_structure = [
   ((), [{(2, 'Urban', ('Urban2', 35))}])
 ]
 summa = 0
-def calculate_structure_sum(*args):
+def calculate_structure_sum(*args): # знак * распаковывает содержимое
   result = 0
   for element in args:
     print(element)
@@ -17,17 +17,15 @@ def calculate_structure_sum(*args):
       result += element
     elif isinstance(element, str):
       result += len(element)
-      
+    elif isinstance(element, set): #используем рекурсию чтобы приплюсовать все элементы множества
+      result += calculate_structure_sum(*element)        
     elif isinstance(element, tuple): #используем рекурсию чтобы приплюсовать все элементы кортежа
       result += calculate_structure_sum(*element)
       
     elif isinstance(element, dict): #со словарем нужно использовать оба его аргумента для рекурсии
-      result += calculate_structure_sum(*element.keys())
+      result += calculate_structure_sum(*element.keys()) #не используем len потому что выше уже есть приплюсовывание строки
       result += calculate_structure_sum(*element.values())
-      
-    elif isinstance(element, set): #используем рекурсию чтобы приплюсовать все элементы множества
-      result += calculate_structure_sum(*element)  
   return result
   
-summa = calculate_structure_sum(data_structure)
+summa = calculate_structure_sum(data_structure) #присваиваем результат функции, переменной, чтобы сохранить глобально результат
 print(summa)
