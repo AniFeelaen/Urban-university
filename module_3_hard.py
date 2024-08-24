@@ -11,20 +11,22 @@ def calculate_structure_sum(*args):
   for element in args:
     print(element)
     if isinstance(element, list):
-      result += calculate_structure_sum(*element)
-    elif isinstance(element, int):
+      result += calculate_structure_sum(*element) #используем рекурсию чтобы приплюсовать все элементы списка
+    
+    elif isinstance(element, int): # рекурсию при простых числах делать не нужно, так как элемент 1
       result += element
     elif isinstance(element, str):
       result += len(element)
-    elif isinstance(element, tuple):
-      result += element
-    elif isinstance(element, dict):
-      result += len(element.keys())
-      result += element.values()
-
-    elif isinstance(element, set):
-      result += element
       
+    elif isinstance(element, tuple): #используем рекурсию чтобы приплюсовать все элементы кортежа
+      result += calculate_structure_sum(*element)
+      
+    elif isinstance(element, dict): #со словарем нужно использовать оба его аргумента для рекурсии
+      result += calculate_structure_sum(*element.keys())
+      result += calculate_structure_sum(*element.values())
+      
+    elif isinstance(element, set): #используем рекурсию чтобы приплюсовать все элементы множества
+      result += calculate_structure_sum(*element)  
   return result
   
 summa = calculate_structure_sum(data_structure)
