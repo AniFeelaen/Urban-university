@@ -14,13 +14,14 @@ def calculate_structure_sum(*args):
       result += calculate_structure_sum(*element)
     elif isinstance(element, int):
       result += element
+    elif isinstance(element, str):
+      result += len(element)
     elif isinstance(element, tuple):
       result += element
     elif isinstance(element, dict):
-      result += sum(len(calculate_structure_sum.keys()))
-      result += calculate_structure_sum.values()
-    elif isinstance(element, str):
-      result += len(element)
+      result += len(element.keys())
+      result += element.values()
+
     elif isinstance(element, set):
       result += element
       
