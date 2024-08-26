@@ -3,8 +3,6 @@ class House:
     def __init__ (self, name, floors):
         self.name = name
         self.number_of_floors = floors
-        # print(name, floors)
-        self.go_to     
        
     def go_to(self, new_floor):
         for i  in range(1, new_floor + 1) :  #прибавляем к new_floor 1 чтобы включить последний элемент в проверку
