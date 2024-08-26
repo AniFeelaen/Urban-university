@@ -8,7 +8,7 @@ class House:
     
     
     def go_to(self, new_floor):
-        # self.number_of_floors = new_floor
+        # self.number_of_floors = new_floor   #ошибка переназначать внутри функции параметр self он должен быть = floors
         for i  in range(1, new_floor + 1) :  #прибавляем к new_floor 1 чтобы включить последний элемент в проверку
             if new_floor > self.number_of_floors or new_floor < 1 :
                 print("Такого этажа не существует")
