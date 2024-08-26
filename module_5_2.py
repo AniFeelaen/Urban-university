@@ -5,11 +5,11 @@ class House:
         self.number_of_floors = floors
        
     def go_to(self, new_floor):
-        for i  in range(1, new_floor + 1) :  #прибавляем к new_floor 1 чтобы включить последний элемент в проверку
-            if new_floor > self.number_of_floors or new_floor < 1 :
+        if new_floor > self.number_of_floors or new_floor < 1 :
                 print("Такого этажа не существует")
-                break
-            print(i) #после проверки на существование этажа в доме выводим этажи до нового этажа 
+                return
+        for i  in range(1, new_floor + 1) :  #прибавляем к new_floor 1 чтобы включить последний элемент в проверку
+            print(i) #после проверки на существование этажа в доме выводим этажи до нового этажа
     def __len__(self):
         return self.number_of_floors
     
