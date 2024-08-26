@@ -2,7 +2,6 @@ class House:
     def __init__ (self, name, floors):
         self.name = name
         self.number_of_floors = floors
-        # print(type(self.number_of_floors))
         self.go_to     
        
     def go_to(self, new_floor):
@@ -81,7 +80,6 @@ print(h1)
 h2 = 10 + h2 # __radd__
 print(h2)
 
-print(h1 > h2) # __gt__
 print(h1 >= h2) # __ge__
 print(h1 < h2) # __lt__
 print(h1 <= h2) # __le__
