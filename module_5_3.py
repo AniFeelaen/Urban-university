@@ -2,12 +2,7 @@ class House:
     def __init__ (self, name, floors):
         self.name = name
         self.number_of_floors = floors
-        # isinstance(floors, House)
-        # floors == int(floors)
-        # print(type(self.number_of_floors))
-        # print(type(floors))
-             
-       
+                 
     def go_to(self, new_floor):
         if new_floor > self.number_of_floors or new_floor < 1 :
                 print("Такого этажа не существует")
@@ -22,7 +17,7 @@ class House:
         return (f"Название: {self.name}, кол-во этажей: {self.number_of_floors}")
     
     def __eq__(self, other):#сравниванием количество этажей
-        if isinstance(other,House):
+        if isinstance(other, House):
             if self.number_of_floors == other.number_of_floors:
                 return True
             else :
