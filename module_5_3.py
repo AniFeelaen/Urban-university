@@ -36,8 +36,6 @@ class House:
                 return False       
     def __gt__(self, other):#сравниванием количество этажей
         if isinstance(other, House):
-            # other = int(other)
-            # print(type(other))
             if self.number_of_floors > other.number_of_floors:
                 return True
             else :
@@ -61,8 +59,6 @@ class House:
             return self
     def __radd__(self, value):
         if isinstance(value, int):
-            # self.number_of_floors += value
-            # return self
             return self.__add__
     def __iadd__(self, value):
         if isinstance(value, int):
