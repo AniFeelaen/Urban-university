@@ -59,12 +59,12 @@ class House:
             return self
     def __radd__(self, value):
         if isinstance(value, int):
-            return self.__add__
+            return self.__add__()
     def __iadd__(self, value):
         if isinstance(value, int):
             self.number_of_floors += value
             return self        
-            # return self.__add__
+            # return self.__add__()
     
 h1 = House('ЖК Эльбрус', 10)
 h2 = House('ЖК Акация', 20)
