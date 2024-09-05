@@ -1,10 +1,11 @@
 class House:
     houses_history = []  #используется во всех функциях класса хаус
     def __new__(cls, *args, **kwargs):
+        # if not cls.houses_history:
         # print(args)
         # print(kwargs)
-        cls.houses_history.append(args[0])
-        return object.__new__(cls)              #обязательное условие возврата значений
+            cls.houses_history.append(args[0])
+            return object.__new__(cls)              #обязательное условие возврата значений
     def __init__ (self, name, floors):
         self.name = name
         self.number_of_floors = floors
