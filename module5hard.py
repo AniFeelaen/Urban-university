@@ -25,6 +25,6 @@ class UrTube:
         if name not in self.name:
             self.name.append(name)
         else:
-            print (f"Пользователь {nickname} уже существует")
+            print (f"Пользователь {self.nickname} уже существует")
         return True
     
