@@ -16,7 +16,7 @@ class Vehicle:
         return f"Цвет: {self.__color}"
     
     def print_info(self):
-         print(super().get_model(self),"\n",
+        return print(super().get_model(self),"\n",
                      super().get_horsepower(self),"\n",
                      super().get_color(self),"\n",
                      f" Владелец: {self.owner}")
