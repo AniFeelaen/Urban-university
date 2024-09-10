@@ -30,7 +30,7 @@ class Vehicle:
 class Sedan(Vehicle):
     def __init__(self, owner: str, __model: str, __engine_power: int, __color: str, __COLOR_VARIANTS: list[str], __PASSENGERS_LIMIT: int):
         super().__init__(owner, __model, __engine_power, __color, __COLOR_VARIANTS)
-        self.__PASSENGERS_LIMIT = __PASSENGERS_LIMIT
+        self.__PASSENGERS_LIMIT = 5
 
 
 __COLOR_VARIANTS = ['blue', 'red', 'green', 'black', 'white']
