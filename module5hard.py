@@ -1,3 +1,5 @@
+from time import sleep
+
 class Video:   
     def __init__ (self, title: str, duration: int, time_now, adult_mode = False):
         self.title = title
@@ -28,3 +30,17 @@ class UrTube:
             print (f"Пользователь {self.nickname} уже существует")
         return True
     
+    def log_out(self):
+        self.current_user = 0
+        
+    def add(self):
+        if self.title not in Video:
+            Video.append(self.title)
+        else:
+            pass
+    def get_videos(self):
+        for title.lower() in Video.lower:
+            print (list[Video])
+            
+    def watch_video(self):
+        
