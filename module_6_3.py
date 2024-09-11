@@ -31,7 +31,7 @@ class Pegasus(Horse, Eagle):
     def voice(self):
         print(self.sound)
         
-p1 = Pegasus(0,0,'')
+p1 = Pegasus(0,0,'непонятный звук')
 
 print(p1.get_pos())
 p1.move(10, 15)
