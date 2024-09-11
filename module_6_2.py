@@ -1,12 +1,11 @@
 class Vehicle:
-    def __init__(self, owner: str, model: str, engine_power: int, color: str, COLOR_VARIANTS: list[str]):
+    COLOR_VARIANTS = ['blue', 'red', 'green', 'black', 'white']
+    
+    def __init__(self, owner: str, model: str, engine_power: int, color: str):
         self.owner = owner
         self.__model = model
         self.__engine_power = engine_power
         self.__color = color
-        COLOR_VARIANTS = ['blue', 'red', 'green', 'black', 'white']
-        self.__COLOR_VARIANTS = COLOR_VARIANTS
-
         
     def get_model(self):
         return f"Модель: {self.__model}"
@@ -18,25 +17,26 @@ class Vehicle:
         return f"Цвет: {self.__color}"
     
     def print_info(self):
-        return print(super().get_model(self),"\n",
-                     super().get_horsepower(self),"\n",
-                     super().get_color(self),"\n",
+        return print(self.get_model(),"\n",
+                     self.get_horsepower(),"\n",
+                     self.get_color(),"\n",
                      f" Владелец: {self.owner}")
     
     def set_color(self, new_color: str):
-        if new_color.lower() in self.__COLOR_VARIANTS:
+        if new_color.lower() in self.COLOR_VARIANTS:
             self.__color = new_color
         else: 
             print(f"Нельзя сменить цвет на {new_color}")
         
 class Sedan(Vehicle):
-    def __init__(self, owner: str, __model: str, __engine_power: int, __color: str, __COLOR_VARIANTS: list[str], __PASSENGERS_LIMIT: int):
-        super().__init__(owner, __model, __engine_power, __color, __COLOR_VARIANTS)
-        self.__PASSENGERS_LIMIT = 5
+    passengers_limit = 5
+    def __init__(self, owner: str, model: str, engine_power: int, color: str, passengers_limit: int):
+        super().__init__(owner, model, engine_power, color)
+        self._passengers_limit = passengers_limit
 
 
 
-vehicle1 = Sedan('Fedos', 'Toyota Mark II', 'blue', 500)
+vehicle1 = Sedan('Fedos', 'Toyota Mark II', 500,"blue", 5)
 
 # Изначальные свойства
 vehicle1.print_info()
