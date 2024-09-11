@@ -18,7 +18,7 @@ class Pegasus(Horse, Eagle):
     def __init__(self, y_distance, x_distance, sound):
         super().__init__(x_distance, sound)
         super().__init__(y_distance, sound)
-        self.y_distance = y_distance
+        self.y_distance = y_distance    #если не записывать эти условия то ругается, обращаться напрямую к классам тоже ругается
         self.x_distance = x_distance
         
     def move(self, dx, dy):
