@@ -18,7 +18,7 @@ class Shop:
     def add(self, *products):
         all_products = self.get_products
         for product in products:
-            if products in all_products:
+            if product in all_products:
                 print(f'Продукт {self.name} уже есть в магазине')
             else:
                 open(self.__file_name, 'a')
