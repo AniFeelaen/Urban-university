@@ -20,6 +20,7 @@ class Pegasus(Horse, Eagle):
         super().__init__(y_distance, sound)
         self.y_distance = y_distance    #если не записывать эти условия то ругается, обращаться напрямую к классам тоже ругается
         self.x_distance = x_distance
+        # self.sound = sound
         
     def move(self, dx, dy):
         self.run(dx)
@@ -31,7 +32,7 @@ class Pegasus(Horse, Eagle):
     def voice(self):
         print(self.sound)
         
-p1 = Pegasus(0,0,'непонятный звук')
+p1 = Pegasus(0,0,'')
 
 print(p1.get_pos())
 p1.move(10, 15)

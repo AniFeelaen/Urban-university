@@ -21,8 +21,9 @@ class Shop:
         all_products = self.get_products()
         added_names = []
         for product in products:
-            name = product.name
-            if name in added_names or name in all_products:
+            name = str(product.name) 
+            weight = str(product.weight)
+            if name in added_names or name in all_products and weight in added_names or weight in all_products:
                 print(f'Продукт {name} уже есть в магазине')
             else:
                 file = open(self.__file_name, 'a')
