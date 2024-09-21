@@ -7,7 +7,7 @@ import time
 # print (dirs)
 # print(file)
 
-for root, dirs, files in os.walk('.'):
+for root, dirs, files in os.walk('.'): # "." = корневая папка по которой бежим
     for file in files:
         filepath = os.path.join(root, file) # полный путь к файлу
         filetime = os.path.getmtime(filepath) # время файла сырое
