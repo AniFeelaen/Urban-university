@@ -15,9 +15,14 @@ class WordsFinder:
         all_words = self.get_all_words()
         positions = {}
         word = word.lower() #обязательно преобразуем искомое слово в нижний регистр чтобы им (регистром) пренебречь.
+        counter = 0
         for file_name, words in all_words.items():
-                index = words.index(word)   #используем index - определяет индекс первого встреченного
-                positions[file_name] = index
+            for index in (words):
+                if index == word:
+                    position = counter  # считаем слова в списке используя счетчик (первое слово текст = 3 проходам цикла фор )
+                # = words.index(word)   # не используем index - определяет индекс первого встреченного
+                    positions[file_name] = position
+                    counter += 1
         return positions
 
     def count(self, word: str):
