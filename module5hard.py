@@ -58,7 +58,7 @@ class UrTube:
             return result_of_request                
             
     def watch_video(self, title):
-        if self.log_in:
+        if not self.self.log_in:
             
             for video in self.videos:
                 if video.title == title:
