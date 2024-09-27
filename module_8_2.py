@@ -11,7 +11,7 @@ def personal_sum(numbers):
     
 def calculate_average(numbers):
     try:
-        summa, incorrect_data = personal_sum(numbers) # в кортеже из суммы и некорректных данных используем только сумму
+        summa, incorrect_data = personal_sum(numbers) # в кортеже из суммы и некорректных данных используем только сумму а данные вычитаем из списка чисел
         average = summa / (len(numbers) - incorrect_data)
         return average
     except ZeroDivisionError:
