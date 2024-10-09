@@ -4,6 +4,6 @@ def all_variants(text):
             yield text[i:j+1]  
 
 
-a = all_variants("abcdg")
+a = all_variants("abcd")
 for i in a:
     print(i)
