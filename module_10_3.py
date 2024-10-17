@@ -13,12 +13,12 @@ class Bank:
              with self.lock:
                 amount = randint(50, 500)
                 self.balance += amount
-                sleep(0.1)
+                sleep(0.001)
                 print(f"Пополнение: {amount}. Баланс: {self.balance}")
                 if self.balance >= 500 and self.lock.locked():
-                    sleep(0.1)
+                    sleep(0.001)
                     self.lock.release()
-                sleep(0.1)
+                sleep(0.001)
 
 
     def take(self):
@@ -28,13 +28,13 @@ class Bank:
                 print(f"Запрос на {request_amount}")
                 if request_amount <= self.balance:
                     self.balance -= request_amount
-                    sleep(0.1)
+                    sleep(0.001)
                     print(f"Снятие: {request_amount}. Баланс: {self.balance}")
                 else:
                     print("Запрос отклонён, недостаточно средств")
-                    sleep(0.1)
-                    self.lock.acquire()
-                sleep(0.1)
+                    sleep(0.001)
+                    self.lock.locked()
+                sleep(0.001)
 
 bk = Bank()
 # Т.к. методы принимают self, в потоки нужно передать сам объект класса Bank
