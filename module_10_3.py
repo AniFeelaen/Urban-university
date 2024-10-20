@@ -10,7 +10,7 @@ class Bank:
 
     def deposit(self):
         for i in range(100):
-             with self.lock:
+            #  with self.lock:
                 amount = randint(50, 500)
                 self.balance += amount
                 sleep(0.001)
@@ -23,7 +23,7 @@ class Bank:
 
     def take(self):
         for i in range(100):
-            with self.lock:
+            # with self.lock:
                 request_amount = randint(50, 500)
                 print(f"Запрос на {request_amount}")
                 if request_amount <= self.balance:
