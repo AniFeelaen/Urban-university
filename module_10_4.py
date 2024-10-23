@@ -27,7 +27,7 @@ class Cafe:
     
     def guest_arrival(self, *guests):
         for guest in guests:
-            if self.table.guest is None in self.tables :
+            if self.tables is None in self.tables :
                 self.guest.start
                 print(f'{guest.name} сел за стол номер {self.table.number}')
             else:
