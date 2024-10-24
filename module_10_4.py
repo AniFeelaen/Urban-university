@@ -52,7 +52,7 @@ class Cafe:
                         new_guest = self.queue.get()
                         table.guest = new_guest
                         print(f'{new_guest.name} вышел из очереди и сел за стол номер {table.number}')
-                        # new_guest.start()
+                        # new_guest.join()
                     
 
 # Создание столов
