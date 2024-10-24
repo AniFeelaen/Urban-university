@@ -1,3 +1,5 @@
+#используем  pool для использования мультипроцессорного вычисления
+
 from multiprocessing import Pool
 
 def square(x):
@@ -9,8 +11,8 @@ if __name__ == '__main__':
         
     print(results)
     
-    
-    
+#рассматриваем как работает Ивент
+
 from multiprocessing import Process, Event
 
 def wait_for_event(e):
