@@ -19,13 +19,13 @@ class RunnerTest(unittest.TestCase):
         runner = Runner('Default1')
         for i in range(10):
             runner.walk()
-        self.assertEqual(runner.distance, 50)   
+        self.assertEqual(runner.distance, 50)   #дистанция шагуна равна ли 50
          
     def test_run(self):
         runner = Runner('Default2')
         for i in range(10):
             runner.run()
-        self.assertEqual(runner.distance, 100) 
+        self.assertEqual(runner.distance, 100)  #дистанция бегуна равна ли 100
         
     def test_challenge(self):
         runner3 = Runner('Default')
@@ -33,7 +33,7 @@ class RunnerTest(unittest.TestCase):
         for i in range(10):
             runner3.walk()
             runner4.run()
-        self.assertNotEqual(runner3.distance, runner4.distance)  
+        self.assertNotEqual(runner3.distance, runner4.distance)   #сравниваем 50 не равно 100
           
 if __name__ == "__main__":
     unittest.main()
