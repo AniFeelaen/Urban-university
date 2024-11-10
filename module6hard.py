@@ -4,14 +4,11 @@ class Figure:
     def __init__(self, color=(0, 0, 0), *sides):
         self.__color = color
         self.sides_count = 0
-        self.filled = False
-        
+        self.filled = False       
         if len(sides) == self.sides_count or not self._Figure__is_valid_sides(*sides):
-            sides = [1 for _ in range(self.sides_count)]
-            
+            sides = [1 for _ in range(self.sides_count)]            
         self.set_sides(*sides)
     
-
     def sides(self):
         return self._Figure__sides
     
@@ -41,20 +38,17 @@ class Figure:
     def __len__(self):
         return sum(self._Figure__sides)
 
-
 class Circle(Figure):
     def __init__(self, color=(0, 0, 0), radius=1):
         super().__init__(color, radius)
         self.sides_count = 1
         self.__radius = radius
     
-
     def radius(self):
         return self.__radius
     
     def get_square(self):
         return math.pi * self.radius ** 2
-
 
 class Triangle(Figure):
     def __init__(self, color=(0, 0, 0), a=1, b=1, c=1):
@@ -65,7 +59,6 @@ class Triangle(Figure):
         a, b, c = self._Figure__sides
         p = (a + b + c) / 2
         return math.sqrt(p * (p - a) * (p - b) * (p - c))
-
 
 class Cube(Figure):
     def __init__(self, color=(0, 0, 0), edge_length=1):
