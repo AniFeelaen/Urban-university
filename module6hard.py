@@ -43,7 +43,7 @@ class Figure:
             
         self.set_sides(*sides)
     
-    # @property
+
     def sides(self):
         return self._Figure__sides
     
@@ -80,7 +80,7 @@ class Circle(Figure):
         self.sides_count = 1
         self.__radius = radius
     
-    # @property
+
     def radius(self):
         return self.__radius
     
