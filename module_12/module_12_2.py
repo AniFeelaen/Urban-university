@@ -65,21 +65,21 @@ class TournamentTest(unittest.TestCase):
         results = tournament.start()
         last_runner = max(results.keys())
         self.assertEqual(results[last_runner], 'Ник') #сравниваем результат последнего раннера с самым медленным(ником)
-        self.__class__.all_results['test_usain_and_nik'] = results
+        self.__class__.all_results['Тест Усэйн и Ник'] = results
         
     def test_andrey_and_nik(self):
         tournament = Tournament(90, self.andrey, self.nik)
         results = tournament.start()
         last_runner = max(results.keys())
         self.assertEqual(results[last_runner], 'Ник')
-        self.__class__.all_results['test_andrey_and_nik'] = results
+        self.__class__.all_results['Тест Андрей и Ник'] = results
         
     def test_all_three_runners(self):
         tournament = Tournament(90, self.usain, self.andrey, self.nik)
         results = tournament.start()
         last_runner = max(results.keys())
         self.assertEqual(results[last_runner], 'Ник')
-        self.__class__.all_results['test_all_three_runners'] = results
+        self.__class__.all_results['Тест всех трех'] = results
 
 if __name__ == '__main__':
     unittest.main()
