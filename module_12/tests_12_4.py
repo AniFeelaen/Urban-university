@@ -73,7 +73,7 @@ class RunnerTest(unittest.TestCase):
             for i in range(10):
                 runner.walk()
             self.assertEqual(runner.distance, 50)   #дистанция шагуна равна ли 50
-            logging.info('"test_walk" выполнен успешно')
+            logging.info('"test_walk" выполнен успешно', exc_info = True)
         except:
             logging.warning("Неправильная скорость у runner", exc_info = True) #пишем exc_info чтобы логировать
             # raise e
@@ -85,7 +85,7 @@ class RunnerTest(unittest.TestCase):
             for i in range(10):
                 runner.run()
             self.assertEqual(runner.distance, 100)  #дистанция бегуна равна ли 100
-            logging.info('"test_run" выполнен успешно')
+            logging.info('"test_run" выполнен успешно', exc_info = True)
         except:
             logging.warning("Неверный тип данных для объекта Runner", exc_info = True) #пишем exc_info чтобы логировать
             # raise exc

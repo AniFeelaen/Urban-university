@@ -1,4 +1,4 @@
-2024-11-12 17:39:54,368 | WARNING | Неверный тип данных для объекта Runner
+2024-11-12 19:35:28,794 | WARNING | Неверный тип данных для объекта Runner
 Traceback (most recent call last):
   File "d:\github Urbanuniversity\Urban-university\module_12\tests_12_4.py", line 84, in test_run
     runner = Runner(123) # передаем число а не строку
@@ -6,7 +6,7 @@ Traceback (most recent call last):
   File "d:\github Urbanuniversity\Urban-university\module_12\tests_12_4.py", line 20, in __init__
     raise TypeError(f'Имя может быть только строкой, передано {type(name).__name__}')
 TypeError: Имя может быть только строкой, передано int
-2024-11-12 17:39:54,369 | WARNING | Неправильная скорость у runner
+2024-11-12 19:35:28,795 | WARNING | Неправильная скорость у runner
 Traceback (most recent call last):
   File "d:\github Urbanuniversity\Urban-university\module_12\tests_12_4.py", line 72, in test_walk
     runner = Runner('Default1', speed = -1) #передаем отрицательную скорость
