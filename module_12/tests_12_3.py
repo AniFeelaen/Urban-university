@@ -12,8 +12,8 @@ suite = unittest.TestSuite()
 #     TournamentTest('test_usain_and_nik'),
 #     TournamentTest('test_andrey_and_nik'),
 #     TournamentTest('test_all_three_runners')
-#     ])
+#     ])                                        #можно перебрать поочередно список тестов
 suite.addTest(unittest.TestLoader().loadTestsFromTestCase(suite_12_3.RunnerTest))
-suite.addTest(unittest.TestLoader().loadTestsFromTestCase(suite_12_3.TournamentTest))
+suite.addTest(unittest.TestLoader().loadTestsFromTestCase(suite_12_3.TournamentTest)) #либо загрузитьтесты каждого класса
 runner = unittest.TextTestRunner(verbosity=2)
 runner.run(suite)

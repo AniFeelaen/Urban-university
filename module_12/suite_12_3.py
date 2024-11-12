@@ -17,7 +17,7 @@ class Runner:
 class RunnerTest(unittest.TestCase):
     is_frozen = False
     
-    @unittest.skipIf(is_frozen, "заморожен")
+    @unittest.skipIf(is_frozen, "заморожен") #декоратор заморозки(спипиф принимает булево значение если да то скип)
     def test_walk(self):
         runner = Runner('Default1')
         for i in range(10):
@@ -78,7 +78,7 @@ class TournamentTest(unittest.TestCase):
         for key, value in cls.all_results.items():
             print(f"{key}: {value}")  #выводим место и имя
             
-    @unittest.skipIf(is_frozen, "заморожен")        
+    @unittest.skipIf(is_frozen, "заморожен") #декоратор заморозки(спипиф принимает булево значение если да то скип)       
     def test_usain_and_nik(self):
         tournament = Tournament(90, self.usain, self.nik)
         results = tournament.start()
