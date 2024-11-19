@@ -4,12 +4,12 @@ import sys
 from os import getenv
 
 from aiogram import Bot, Dispatcher, html
-from aiogram.client.default import DefaultBotProperties
+# from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.filters import CommandStart
 from aiogram.types import Message
 
-api = "7737642463:AAFU-T8fCoYV-6aqMKIldNyth18f97zMdM0"
+
 bot = Bot(token = api)
 dp = Dispatcher()
 
