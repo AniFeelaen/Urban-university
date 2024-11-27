@@ -7,11 +7,7 @@ storage = MemoryStorage()
 bot = Bot(token= bot_key.TOKEN)
 
 dp = Dispatcher(bot, storage= storage)
-
-# @dp.message_handler(text = ['Urban', 'ff'])
-# async def urban_message(message):
-#     print('Urban message')
-    
+   
 @dp.message_handler(commands = ["start"] )
 async def start (message: types.Message):
     await message.answer('Привет! Я бот помогающий твоему здоровью.')
