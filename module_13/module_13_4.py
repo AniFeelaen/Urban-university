@@ -33,7 +33,7 @@ async def set_age(message: types.Message, state):
     try:
         age = int(message.text)
         if age <= 6 or age > 90:
-            raise ValueError('Неправильно указан возраст.')
+            raise ValueError('Неправильно указан возраст, введите возраст от 6 до 90.')
         
         await state.update_data(age=age)
         await message.answer("Отлично! Теперь введи свой рост в сантиметрах:")
