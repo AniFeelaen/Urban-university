@@ -65,7 +65,7 @@ async def set_weight(message: types.Message, state):
         weight = float(message.text)
         if weight <= 20 or weight > 150:
             raise ValueError('Вес должен быть в пределах от 20 до 150 кг.')
-        
+
         await state.update_data(weight=weight)
         await calculate_and_send_calories(message, state)
     
