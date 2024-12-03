@@ -18,6 +18,8 @@ button = KeyboardButton( text= 'Рассчитать')
 button2 = KeyboardButton( text= 'Информация')
 menu.add(button)
 menu.add(button2)
+# menu.add(button, button2)
+
 menu.resize_keyboard=True
 
 
