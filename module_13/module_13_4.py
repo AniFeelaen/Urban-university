@@ -93,12 +93,3 @@ if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
     
     
-# if text not in range(6, 80):
-#     await bot.send_message(
-#         chat_id=message.chat_id,
-#         text = 'Подозрительный возраст'
-#     )
-    
-#     ReplyKeyboardMarkup(
-    
-# )
