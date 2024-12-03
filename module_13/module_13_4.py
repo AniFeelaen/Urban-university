@@ -12,6 +12,8 @@ dp = Dispatcher(bot, storage= storage)
 dp.middleware.setup(LoggingMiddleware())
 
 
+
+
 # Группа состояний для хранения данных о возрасте, росте и весе
 class UserState(StatesGroup):
     age = State() 
