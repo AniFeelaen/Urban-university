@@ -4,12 +4,12 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram import Bot, Dispatcher, executor, types
 import asyncio
 import bot_key
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.dispatcher.filters import Text
 
 storage = MemoryStorage()
+#доступ к боту
 bot = Bot(token= bot_key.TOKEN)
-
 dp = Dispatcher(bot, storage= storage)
 dp.middleware.setup(LoggingMiddleware())
 
@@ -19,34 +19,44 @@ button2 = KeyboardButton( text= 'Информация')
 menu.add(button)
 menu.add(button2)
 # menu.add(button, button2)
-
 menu.resize_keyboard=True
 
-
-
-# Обработчик всех сообщений, кроме команд
+#создание инлайн клавиатуры с 2 кнопками
+inline = InlineKeyboardMarkup()
+inline_button1 = InlineKeyboardButton(text = 'Рассчитать норму калорий', callback_data='calories' )
+inline_button2 = InlineKeyboardButton(text = 'Формулы расчёта', callback_data='formulas'  )
+inline.add(inline_button1)
+inline.add(inline_button2)
+inline.resize_keyboard=True
 
 # Группа состояний для хранения данных о возрасте, росте и весе
 class UserState(StatesGroup):
     age = State() 
     growth = State()  
     weight = State()  
-
+    
+#обработка обычной клавиатуры на клик по Рассчитать
+@dp.message_handler(Text(equals='Рассчитать'))
+async def main_menu(message):
+    await message.answer('Выберите опцию', reply_markup = inline) 
+@dp.callback_query_handler(Text(equals='formulas'))
+async def get_formulas(call):
+    await call.message.answer('формула для мужчин - (10 * вес) + (6.25 * рост) - (5 * возраст),\nформула для женщин - (10 * вес) + (6.25 * рост) - (5 * возраст) - 163')
+# 'формула для женщин - (10 * вес) + (6.25 * рост) - (5 * возраст) - 163') 
+    
+    
 # Функция для начала работы с ботом и получения возраста
 @dp.message_handler(commands='start')
 async def start_command(message: types.Message):
     # reply_markup = ReplyKeyboardMarkup(kb, resize_keyboard=True)
     await message.answer(
         "Привет! Я бот помогающий твоему здоровью.", reply_markup = menu)
-
-    
-    
     # await UserState.age.set()
     # Text(equals='привет') 
     # state=UserState.age
-@dp.message_handler(Text(equals='Рассчитать'))
-async def set_age(message: types.Message):
-   await message.answer( 'Для начала введите свой возраст')
+@dp.callback_query_handler(Text(equals='calories'))
+async def set_age(call: types.Message):
+   await call.message.answer( 'Для начала введите свой возраст')
    await UserState.age.set()
 
 # Обработчик для получения возраста
