@@ -29,6 +29,11 @@ inline.add(inline_button1)
 inline.add(inline_button2)
 inline.resize_keyboard=True
 
+# inline = InlineKeyboardMarkup().row(
+#     types.InlineKeyboardButton(text = 'Рассчитать норму калорий', callback_data='calories' ),
+#     types.InlineKeyboardButton(text = 'Формулы расчёта', callback_data='formulas'  ),
+# )
+
 # Группа состояний для хранения данных о возрасте, росте и весе
 class UserState(StatesGroup):
     age = State() 
