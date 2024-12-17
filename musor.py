@@ -1,5 +1,5 @@
 # Обновляем баланс у каждой второй записи начиная с первой
-for i in range (1, 10, 2):
+for i in range (1, 11, 2):
     cursor.execute('''
     UPDATE Users
     SET balance = 500
@@ -7,7 +7,7 @@ for i in range (1, 10, 2):
 # WHERE id % 2 == 1
 
 # Удаляем каждую третью запись начиная с первой
-for i in range (1, 10, 3):
+for i in range (1, 11 3):
     cursor.execute('''
     DELETE FROM Users 
 ''')
