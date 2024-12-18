@@ -62,17 +62,31 @@ async def info_menu(message: types.Message):
 @dp.callback_query_handler(Text(equals='formulas'))
 async def get_formulas(call):
     await call.message.answer('формула для мужчин - (10 * вес) + (6.25 * рост) - (5 * возраст),\nформула для женщин - (10 * вес) + (6.25 * рост) - (5 * возраст) - 163')
- 
+
 # Обработчик нажатия кнопки "Купить"
 @dp.message_handler(Text(equals='Купить'))
-async def get_buying_list(message: types.Message):
+async def get_buying_list(message):
+    for i in range(1, 5):
+        # Отправляем информацию о продукте
+        await message.answer(f'Название: Product{i} | Описание: описание {i} | Цена: {i * 100}')
+        # Отправляем картинку продукта (замените на реальные пути к изображениям)
+        with open(f'{i}.png', "rb") as img:
+            await message.answer_photo(img, caption=f'Название: Product{i} | Описание: описание {i} | Цена: {i * 100}')
+    # Отправляем inline-меню после информации о продуктах
     await message.answer('Выберите продукт для покупки:', reply_markup=inline2)
+    
+    
+    
+# Обработчик коллбэка "product_buying"
+@dp.callback_query_handler(Text(startswith='product_buying'))
+async def send_confirm_message(call: types.message):
+    await call.answer("Вы успешно приобрели продукт!")
 
 @dp.callback_query_handler(Text(equals='calories'))
 async def back(call: types.Message):
    await call.message.answer( 'Для начала введите свой возраст')
  
-
+#обработка кнопки Назад
 @dp.callback_query_handler(Text(equals='back_to_catalog'))
 async def set_age(call: types.Message):
     await call.message.answer(
