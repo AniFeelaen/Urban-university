@@ -24,6 +24,18 @@ def initiate_db():
 #     INSERT INTO Users VALUES('{user_id}', '{username}', '{firstname}', 0)                   
 #     ''')
 #     connect.commit()
+
+def add_product(title, description, price):
+    with sqlite3.connect('products.db') as conn:
+        cursor = conn.cursor()
+        
+        # Добавление нового продукта
+        cursor.execute('''
+            INSERT INTO Products (title, description, price)
+            VALUES (?, ?, ?)
+        ''', (title, description, price))
+        conn.commit()
+        
 def get_all_products():
     connect = sqlite3.connect('products.db')
     cursor = connect.cursor()

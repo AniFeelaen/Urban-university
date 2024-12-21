@@ -72,7 +72,7 @@ async def get_buying_list(message):
         # Отправляем информацию о продукте
         # await message.answer(f'Название: Product{i} | Описание: описание {i} | Цена: {i * 100}')
         # Отправляем картинку продукта (замените на реальные пути к изображениям)
-        with open(f'module_14/{i}.png', "rb") as img:
+        with open(f'Urban-university/module_14/{i}.png', "rb") as img:
             await message.answer_photo(img, caption=f'Название: Алкозельцер{i} | Описание: Препарат номер{i} | Цена: {i * 100}')
     # Отправляем inline-меню после информации о продуктах
     await message.answer('Выберите продукт для покупки:', reply_markup=inline2)    

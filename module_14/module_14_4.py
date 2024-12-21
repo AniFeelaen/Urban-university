@@ -8,15 +8,7 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMar
 from aiogram.dispatcher.filters import Text
 
 import sqlite3
-# from config import *
-# from keyboards import *
-from admin import *
-from module_14.crud_functions import *
-
-# Создаем подключение к базе данных
-# connect = sqlite3.connect('products.db')
-# cursor = connect.cursor()
-
+from crud_functions import *
 
 storage = MemoryStorage()
 #доступ к боту
@@ -29,11 +21,9 @@ button = KeyboardButton( text= 'Рассчитать')
 button2 = KeyboardButton( text= 'Информация')
 button3 = KeyboardButton( text= 'Купить')
 menu.row(button, button2, button3)
-# menu.add(button, button2)
 menu.resize_keyboard=True
 
 #создание инлайн клавиатуры с 2 кнопками
-
 inline = InlineKeyboardMarkup(row_width=2)
 inline.add(
     types.InlineKeyboardButton(text = 'Рассчитать норму калорий', callback_data='calories' ),
@@ -80,10 +70,8 @@ async def get_formulas(call):
 @dp.message_handler(Text(equals='Купить'))
 async def get_buying_list(message):
     for i in range(1, 5):
-        # Отправляем информацию о продукте
-        # await message.answer(f'Название: Product{i} | Описание: описание {i} | Цена: {i * 100}')
-        # Отправляем картинку продукта (замените на реальные пути к изображениям)
-        with open(f'module_14/{i}.png', "rb") as img:
+        # Отправляем картинку продукта 
+        with open(f'Urban-university/module_14/{i}.png', "rb") as img:
             await message.answer_photo(img, caption=f'Название: Алкозельцер{i} | Описание: Препарат номер{i} | Цена: {i * 100}')
     # Отправляем inline-меню после информации о продуктах
     await message.answer('Выберите продукт для покупки:', reply_markup=inline2)    
