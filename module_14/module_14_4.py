@@ -72,8 +72,9 @@ async def get_buying_list(message):
     # for i in get_all_products():
     for i in range(1, 5):
     #     # Отправляем картинку продукта 
+        message_text = get_all_products()
         with open(f'Urban-university/module_14/{i}.png', "rb") as img:
-            await message.answer_photo(img, caption=get_all_products(i))
+            await message.answer_photo(img, caption=message_text)
     # # Отправляем inline-меню после информации о продуктах
     await message.answer('Выберите продукт для покупки:', reply_markup=inline2)    
   
