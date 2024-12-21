@@ -9,7 +9,8 @@ from aiogram.dispatcher.filters import Text
 
 import sqlite3
 from crud_functions import *
-
+initiate_db()
+get_all_products()
 storage = MemoryStorage()
 #доступ к боту
 bot = Bot(token= bot_key.TOKEN)
@@ -64,17 +65,20 @@ async def info_menu(message: types.Message):
 async def get_formulas(call):
     await call.message.answer('формула для мужчин - (10 * вес) + (6.25 * рост) - (5 * возраст),\nформула для женщин - (10 * вес) + (6.25 * рост) - (5 * возраст) - 163')
 
-
-#новая программа про купить продукт с картинкой и подписью, кнопкой назад и перечисление продукта
 # Обработчик нажатия кнопки "Купить"
 @dp.message_handler(Text(equals='Купить'))
+#переделанная функция get_buying_list с get_all_products
 async def get_buying_list(message):
+    # for i in get_all_products():
     for i in range(1, 5):
-        # Отправляем картинку продукта 
+    #     # Отправляем картинку продукта 
         with open(f'Urban-university/module_14/{i}.png', "rb") as img:
-            await message.answer_photo(img, caption=f'Название: Алкозельцер{i} | Описание: Препарат номер{i} | Цена: {i * 100}')
-    # Отправляем inline-меню после информации о продуктах
+            await message.answer_photo(img, caption=get_all_products(i))
+    # # Отправляем inline-меню после информации о продуктах
     await message.answer('Выберите продукт для покупки:', reply_markup=inline2)    
+  
+  
+  
        
 # Обработчик коллбэка "product_buying"
 @dp.callback_query_handler(Text(startswith='product_buying'))
@@ -85,11 +89,20 @@ async def send_confirm_message(call: types.message):
 async def back(call: types.Message):
    await call.message.answer( 'Для начала введите свой возраст')
  
+ 
+ 
 #обработка кнопки Назад
 @dp.callback_query_handler(Text(equals='back_to_catalog'))
 async def set_age(call: types.Message):
     await call.message.answer(
         f"Привет!{call.message.from_user.username} Я бот помогающий твоему здоровью.", reply_markup = menu)
+
+
+
+
+
+
+
 
 
 #Прошлая программа про возраст и калории    
