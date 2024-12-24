@@ -16,10 +16,3 @@ async def read_username_age(username: str, age: int) -> dict:
 @app.get("/")
 async def read_root() -> dict:
     return {"message": "Главная страница"}
-
-# if __name__ == '__main__':
-#     app.run()
-    
-# cd Urban_university/main.py    
-# >> python -m uvicorn main:app
-# uvicorn main:app --reload
