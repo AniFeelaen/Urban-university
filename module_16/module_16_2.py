@@ -1,5 +1,6 @@
-from fastapi import FastAPI, Path
+from fastapi import FastAPI, Path, HTTPException
 from enum import Enum
+from typing import Dict
 from typing import Annotated
 
 app = FastAPI()
