@@ -24,7 +24,7 @@ async def create_user(username: str, age: int):
         new_user = User(id=1, username=username, age=age)
     else:
         new_user = User(
-            id=(max(id(users)) + 1), 
+            id=max([user.id for user in users]) + 1, 
             username=username,
             age=age
         )
@@ -35,14 +35,14 @@ async def create_user(username: str, age: int):
 async def update_user(user_id: int, username: str, age: int):
     for user in users:
         if user.id == user_id:
-            users.username = username
-            users.age = age
-            return users
+            user.username = username
+            user.age = age
+            return user
     raise HTTPException(status_code=404, detail="User was not found")
 
 @app.delete("/user/{user_id}/")
 async def delete_user(user_id: int):
-    for index, user in users:
+    for index, user in enumerate(users):
         if user.id == user_id:
             deleted_user = users.pop(index)
             return deleted_user
