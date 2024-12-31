@@ -39,4 +39,4 @@ async def read_admin() -> str:
     return ("Вы вошли как администратор")
 
 
-# uvicorn Urban-university.module_16.module_16_1:app
+# uvicorn Urban-university.module_16.module_16_2:app

@@ -31,4 +31,4 @@ def delete_user(user_id: str):
     return {"message": f"User {user_id} has been deleted"}
 
 
-# uvicorn Urban-university.module_16.module_16_2:app
+# uvicorn Urban-university.module_16.module_16_3:app
