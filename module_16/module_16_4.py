@@ -2,6 +2,7 @@ from fastapi import FastAPI, Path, HTTPException
 from enum import Enum
 from typing import List, Optional
 from pydantic import BaseModel
+from typing import Annotated
 
 app = FastAPI()
 users = []  # Список пользователей
@@ -19,7 +20,16 @@ async def get_users():
 
 # POST /user/{username}/{age}
 @app.post("/user/{username}/{age}")
-async def create_user(username: str, age: int):
+async def create_user(    username: Annotated[str, 
+                        Path(min_length=3, max_length=20, regex="^[a-zA-Z0-9_-]+$",
+                             description= "Enter username",
+                             examples= "UrbanUser")], 
+    age: Annotated[int,
+                   Path(ge=18,
+                        le=120,
+                        description= "Enter age",
+                        examples= 24)]
+                   ):
     if len(users) == 0:
         new_user = User(id=1, username=username, age=age)
     else:
@@ -32,7 +42,20 @@ async def create_user(username: str, age: int):
     return new_user
 
 @app.put("/user/{user_id}/{username}/{age}")
-async def update_user(user_id: int, username: str, age: int):
+async def update_user(user_id: Annotated[int,
+                        Path(ge=1,
+                        le=100,
+                        description= "Enter User ID",
+                        examples= 1)],
+    username: Annotated[str, 
+                        Path(min_length=3, max_length=20, regex="^[a-zA-Z0-9_-]+$",
+                             description= "Enter username",
+                             examples= "UrbanUser")], 
+    age: Annotated[int,
+                   Path(ge=18,
+                        le=120,
+                        description= "Enter age",
+                        examples= 24)]):
     for user in users:
         if user.id == user_id:
             user.username = username
