@@ -22,8 +22,7 @@ async def read_user_id(
 @app.get("/user/{username}/{age}")
 async def read_username_age(
     username: Annotated[str, 
-                        Path(ge=5,
-                             le=20,
+                        Path(min_length=3, max_length=20, regex="^[a-zA-Z0-9_-]+$",
                              description= "Enter username",
                              examples= "UrbanUser")], 
     age: Annotated[int,
