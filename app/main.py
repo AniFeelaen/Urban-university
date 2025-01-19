@@ -14,6 +14,6 @@ def welcome_message():
     return {"message": "Welcome to Taskmanager"}
 
 # app.include_router(category.router)
-app.include_router(task.models)
-app.include_router(user.models)
+app.include_router(task.router)
+app.include_router(user.router)
 
