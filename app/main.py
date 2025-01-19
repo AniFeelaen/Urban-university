@@ -17,3 +17,6 @@ def welcome_message():
 app.include_router(task.router)
 app.include_router(user.router)
 
+from sqlalchemy.schema import CreateTable
+print(CreateTable(user.User.__table__))
+print(CreateTable(task.Task.__table__))
