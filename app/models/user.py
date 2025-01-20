@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from backend.db import Base
+from app.backend.db import Base
 
 class User(Base):
     __tablename__ = 'users'

@@ -1,10 +1,12 @@
 
-
+import sys
+sys.path.append('..')
 # uvicorn Urban-university.app.main:app
 # uvicorn app.main:app
+# uvicorn app.routers.main:app
 from fastapi import FastAPI
-from models import user
-from models import task
+from app.models import user
+from app.models import task
 
 
 app = FastAPI()
