@@ -20,3 +20,10 @@ app.include_router(user.router)
 from sqlalchemy.schema import CreateTable
 print(CreateTable(user.User.__table__))
 print(CreateTable(task.Task.__table__))
+
+# alembic revision --autogenerate -m "initial migration2"
+# from app.backend.db import Base
+# from app.models.user import User
+# from app.models.task import Task
+# target_metadata = Base.metadata
+# sqlite:///taskmanager.db
